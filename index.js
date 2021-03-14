@@ -6,8 +6,9 @@ const { connect } = require('./routes/auth');
 /// Connect to Database
 const _user = 'gubiarpa';
 const _pass = 'ReV6LCjWDgAngaETz1zcVjOe8Ce3sg';
-mongoose.connect(`mongodb+srv://${ _user }:${ _pass }@cluster0.vyp0a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, () => {
-    console.log('Connected to DB');
+mongoose.connect(`mongodb+srv://${ _user }:${ _pass }@cluster0.vyp0a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    { useNewUrlParser: true },
+    () => { console.log('Connected to DB');
 });
 
 /// Import Routes
