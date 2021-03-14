@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { connect } = require('./routes/auth');
 
 /// Connect to Database
-const _user = 'gubiarpa';
-const _pass = 'ReV6LCjWDgAngaETz1zcVjOe8Ce3sg';
-mongoose.connect(`mongodb+srv://${ _user }:${ _pass }@cluster0.vyp0a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+dotenv.config();
+mongoose.connect(
+    process.env.DB_CONNECT,
     { useNewUrlParser: true },
     () => { console.log('Connected to DB');
 });
